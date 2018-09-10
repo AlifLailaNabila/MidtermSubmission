@@ -145,8 +145,8 @@ public class EmployeeInfo extends AbstractEmployee implements Employee{
 		//Calculate pension
 
 
-		String startYear=convertedJoiningDate.substring(convertedJoiningDate.length()-4);
-		String currentYear=convertedTodaysDate.substring(convertedTodaysDate.length()-4);
+		String startYear=convertedJoiningDate.substring(convertedJoiningDate.length()-4,convertedJoiningDate.length());
+		String currentYear=convertedTodaysDate.substring(convertedTodaysDate.length()-4,convertedTodaysDate.length());
 		int start = Integer.parseInt(startYear);
 		int current = Integer.parseInt(currentYear);
 		if((current-start)==1){

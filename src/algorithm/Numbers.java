@@ -22,23 +22,36 @@ public class Numbers {
 
 	public static void main(String[] args) throws Exception {
 		
-		int [] num = new int[1000000];
+		int [] num = new int[10];
 		storeRandomNumbers(num);
-		ConnectToSqlDB connectToSqlDB = new ConnectToSqlDB();
+		//ConnectToSqlDB connectToSqlDB = new ConnectToSqlDB();
 		//Selection Sort
 		Sort algo = new Sort();
 		algo.selectionSort(num);
 		long selectionSortExecutionTime = algo.executionTime;
 		System.out.println("Total Execution Time of "+ num.length + " numbers in Selection Sort take: " + selectionSortExecutionTime + " milli sec");
-        connectToSqlDB.insertDataFromArrayToSqlTable(num, "selection_sort", "SortingNumbers");
-        List<String> numbers = connectToSqlDB.readDataBase("selection_sort", "SortingNumbers");
-        printValue(numbers);
-		int n = num.length;
-		randomize (num, n);
+        //connectToSqlDB.insertDataFromArrayToSqlTable(num, "selection_sort", "SortingNumbers");
+        //List<String> numbers = connectToSqlDB.readDataBase("selection_sort", "SortingNumbers");
+        //printValue(numbers);
+		//int n = num.length;
+		//randomize (num, n);
+		Sort.printSortedArray(num);
+
+
 		//Insertion Sort
 		algo.insertionSort(num);
 		long insertionSortExecutionTime = algo.executionTime;
 		System.out.println("Total Execution Time of " + num.length + " numbers in Insertion Sort take: " + insertionSortExecutionTime + " milli sec");
+		Sort.printSortedArray(num);
+
+
+
+		//Buubble Sort
+		algo.bubbleSort(num);
+		long bubbleSortExecutionTime = algo.executionTime;
+		System.out.println("Total Execution Time of " + num.length + " numbers in Insertion Sort take: " + bubbleSortExecutionTime + " milli sec");
+		Sort.printSortedArray(num);
+
 
 		//By following above, Continue for rest of the Sorting Algorithm....
 
@@ -52,7 +65,7 @@ public class Numbers {
 	public static void storeRandomNumbers(int [] num){
 		Random rand = new Random();
 		for(int i=0; i<num.length; i++){
-			num[i] = rand.nextInt(1000000);
+			num[i] = rand.nextInt(10);
 		}
 	}
 
