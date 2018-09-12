@@ -122,6 +122,12 @@ public class ConnectToSqlDB {
         }
     }
 
+
+
+
+
+
+
     public List<String> directDatabaseQueryExecute(String passQuery,String dataColumn)throws Exception{
         List<String> data = new ArrayList<String>();
 
@@ -138,7 +144,7 @@ public class ConnectToSqlDB {
         return data;
     }
 
-    public void insertDataFromArrayListToSqlTable(List<Student> list, String tableName, String columnName)
+    public void insertDataFromArrayListToSqlTable(ArrayList<String> list, String tableName, String columnName)
     {
         try {
             connectToSqlDatabase();
@@ -146,10 +152,10 @@ public class ConnectToSqlDB {
             ps.executeUpdate();
             ps = connect.prepareStatement("CREATE TABLE `"+tableName+"` (`ID` int(11) NOT NULL AUTO_INCREMENT,`SortingNumbers` bigint(20) DEFAULT NULL,  PRIMARY KEY (`ID`) );");
             ps.executeUpdate();
-            for(Student st:list){
+            for(String st:list){
                 ps = connect.prepareStatement("INSERT INTO "+tableName+" ( "+columnName+" ) VALUES(?)");
                 ps.setObject(1,st);
-                ps.executeUpdate();
+//                ps.executeUpdate();
             }
 
         } catch (IOException e) {
@@ -186,7 +192,7 @@ public class ConnectToSqlDB {
         User user = null;
         try{
             Connection conn = connectToSqlDatabase();
-            String query = "SELECT * FROM Students";
+            String query = "SELECT * FROM PNT";
             // create the java statement
             Statement st = conn.createStatement();
             // execute the query, and get a java resultset
@@ -194,9 +200,9 @@ public class ConnectToSqlDB {
             // iterate through the java resultset
             while (rs.next())
             {
-                String name = rs.getString("stName");
-                String id = rs.getString("stID");
-                String dob = rs.getString("stDOB");
+                String name = rs.getString("stuName");
+                String id = rs.getString("stuID");
+                String dob = rs.getString("stuDOB");
                 //System.out.format("%s, %s\n", name, id);
                 user = new User(name,id, dob);
                 list.add(user);

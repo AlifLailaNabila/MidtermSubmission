@@ -22,7 +22,7 @@ public class ConnectToMongoDB {
 
     public static MongoDatabase connectToMongoDB() {
         MongoClient mongoClient = new MongoClient();
-        mongoDatabase = mongoClient.getDatabase("students");
+        mongoDatabase = mongoClient.getDatabase("Students");
         System.out.println("Database Connected");
 
         return mongoDatabase;
@@ -32,9 +32,11 @@ public class ConnectToMongoDB {
         String profile = user.getStName();
         MongoDatabase mongoDatabase = connectToMongoDB();
         MongoCollection<Document> collection = mongoDatabase.getCollection("profile");
-        Document document = new Document().append("stName",user.getStName()).append("stID", user.getStID()).
-                append("stDOB",user.getStDOB());
+        Document document = new Document().append("studentName",user.getStName()).append("studentID", user.getStID()).
+                append("studentDOB",user.getStDOB());
         collection.insertOne(document);
+        //Document document = new Document().append("studentName", user.getStudentName()).append("studentID", user.getStudentID()).append("studentDOB", user.getStudentDOB());
+        //collection.insertOne(document);
         return profile + " has been registered";
     }
 

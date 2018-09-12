@@ -1,10 +1,13 @@
 package algorithm;
 
+
+
 //import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
-import databases.ConnectToSqlDB;
+
 
 import java.util.List;
 import java.util.Random;
+import databases.ConnectToSqlDB;
 
 /*
  *Created by mrahman on 04/02/2018.
@@ -23,9 +26,9 @@ public class Numbers{
 
 	public static void main(String[] args) throws Exception {
 		
-		int [] num = new int[1000];
+		int [] num = new int[10];
 		storeRandomNumbers(num);
-		//ConnectToSqlDB connectToSqlDB = new ConnectToSqlDB();
+		ConnectToSqlDB connectToSqlDB = new ConnectToSqlDB();
 		//Selection Sort
 		Sort algo = new Sort();
 
@@ -34,15 +37,15 @@ public class Numbers{
 		System.out.println("SELECTION SORT");
 		long selectionSortExecutionTime = algo.executionTime;
 		System.out.println("Total Execution Time of "+ num.length + " numbers in Selection Sort take: " + selectionSortExecutionTime + " milli sec");
-        //connectToSqlDB.insertDataFromArrayToSqlTable(num, "selection_sort", "SortingNumbers");
-        //List<String> numbers = connectToSqlDB.readDataBase("selection_sort", "SortingNumbers");
-        //printValue(numbers);
-		//int n = num.length;
-		//randomize (num, n);
+        connectToSqlDB.insertDataFromArrayToSqlTable(num, "PNT", "SortingNumbers");
+        List<String> numbers = connectToSqlDB.readDataBase("PNT", "SortingNumbers");
+        printValue(numbers);
+		int n = num.length;
+		randomize (num, n);
 		Sort.printSortedArray(num);
 
-		//printValue(numbers);
-		//randomize (num, n);
+		printValue(numbers);
+		randomize (num, n);
 
 
 		//Insertion Sort
@@ -156,7 +159,7 @@ public class Numbers{
 	public static void storeRandomNumbers(int [] num){
 		Random rand = new Random();
 		for(int i=0; i<num.length; i++){
-			num[i] = rand.nextInt(100000);
+			num[i] = rand.nextInt(10);
 		}
 	}
 
