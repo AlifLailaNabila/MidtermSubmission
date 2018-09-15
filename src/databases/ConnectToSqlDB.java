@@ -43,7 +43,7 @@ public class ConnectToSqlDB {
     }
 
     public List<String> readDataBase(String tableName, String columnName)throws Exception{
-        List<String> data = new ArrayList<String>();
+        List<String> data = new ArrayList<>();
 
         try {
             connectToSqlDatabase();
@@ -155,7 +155,7 @@ public class ConnectToSqlDB {
             for(String st:list){
                 ps = connect.prepareStatement("INSERT INTO "+tableName+" ( "+columnName+" ) VALUES(?)");
                 ps.setObject(1,st);
-//                ps.executeUpdate();
+                //ps.executeUpdate();
             }
 
         } catch (IOException e) {

@@ -51,30 +51,36 @@ public class UseArrayList {
 		//Sorting ArrayList
 		Collections.sort(Student);
 		System.out.println(Student);
-		List list = new ArrayList();
-		list = Student;
+		//List list = new ArrayList();
+		//list = Student;
 
 		//Connect to MySql Database
 		ConnectToSqlDB connectToSqlDB = new ConnectToSqlDB();
 
 
-
 		//Insert data in the database
-		connectToSqlDB.insertDataFromArrayListToSqlTable(Student, "PNT", "stuName");
+		connectToSqlDB.insertDataFromArrayListToSqlTable(Student, "Array_List", "Details");
+		//connectToSqlDB.insertDataFromArrayListToSqlTable(Student, "Array_List", "Details");
+		//connectToSqlDB.insertDataFromStringToSqlTable(String.valueOf(Student), "Array_List", "Details");
+
 
 		//Read data from database
 
-
-
-		List<String> name = connectToSqlDB.readDataBase("PNT", "stuName");
-		for (String st : name) {
+		List<String> student = connectToSqlDB.readDataBase("Array_List", "Details");
+		//printValue(name);
+		for (String st : Student) {
 			System.out.println(st);
 
 
 		}
 
+		//public static void printValue(List<String> array) {
+		//for (String st : array) {
+		//System.out.println(st);
+		//}
 	}
 }
+
 
 	
 
