@@ -12,6 +12,7 @@ public class Factorial {
         else
             return(n * factorial(n-1));
     }
+    //Iteration
 
     static int factI(int p){
         int k=1;
@@ -23,7 +24,12 @@ public class Factorial {
 
     public static void main(String[] args) {
         System.out.println("Factorial of 5 is "+factorial(5));
+        //Recursion
 
+        int i =5;
+        int i2=factorial(i);
+        System.out.println("Factorial  "+i+" is: "+i2);
+        System.out.println(" finding factorial using iteration of no 5 is: "+factI(5));
 
 
 
@@ -32,9 +38,6 @@ public class Factorial {
          * Write a java program to find Factorial of a given number using Recursion as well as Iteration.
          *
          */
-
-
-
 
 
     }

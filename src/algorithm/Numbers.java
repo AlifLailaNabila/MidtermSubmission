@@ -26,7 +26,7 @@ public class Numbers{
 
 	public static void main(String[] args) throws Exception {
 		
-		int [] num = new int[100];
+		int [] num = new int[1000000];
 		storeRandomNumbers(num);
 		ConnectToSqlDB connectToSqlDB = new ConnectToSqlDB();
 		//Selection Sort
@@ -39,12 +39,11 @@ public class Numbers{
 		System.out.println("Total Execution Time of "+ num.length + " numbers in Selection Sort take: " + selectionSortExecutionTime + " milli sec");
         connectToSqlDB.insertDataFromArrayToSqlTable(num, "Selection_Sort", "SortingNumbers");
         List<String> numbers = connectToSqlDB.readDataBase("Selection_Sort", "SortingNumbers");
-        printValue(numbers);
 		int n = num.length;
 		randomize (num, n);
-		Sort.printSortedArray(num);
+		//Sort.printSortedArray(num);
 
-		printValue(numbers);
+		//printValue(numbers);
 		randomize (num, n);
 
 
@@ -54,10 +53,10 @@ public class Numbers{
 		long insertionSortExecutionTime = algo.executionTime;
 		System.out.println("Total Execution Time of " + num.length + " numbers in Insertion Sort take: " + insertionSortExecutionTime + " milli sec");
 		connectToSqlDB.insertDataFromArrayToSqlTable(num, "Insertion_Sort", "SortingNumbers");
-		printValue(numbers);
-		Sort.printSortedArray(num);
+		//printValue(numbers);
+		//Sort.printSortedArray(num);
 
-		printValue(numbers);
+		//printValue(numbers);
 		randomize (num, n);
 
 
@@ -68,9 +67,9 @@ public class Numbers{
 		long bubbleSortExecutionTime = algo.executionTime;
 		System.out.println("Total Execution Time of " + num.length + " numbers in Insertion Sort take: " + bubbleSortExecutionTime + " milli sec");
 		connectToSqlDB.insertDataFromArrayToSqlTable(num, "Bubble_Sort", "SortingNumbers");
-		Sort.printSortedArray(num);
+		//Sort.printSortedArray(num);
 
-		printValue(numbers);
+		//printValue(numbers);
 		randomize (num, n);
 
 
@@ -82,9 +81,9 @@ public class Numbers{
 		long mergeSortExecutionTime = algo.executionTime;
 		System.out.println("Total Execution Time of " + num.length + " numbers in Merge Sort take: " + mergeSortExecutionTime + " milli sec");
 		connectToSqlDB.insertDataFromArrayToSqlTable(num, "Merge_Sort", "SortingNumbers");
-		Sort.printSortedArray(num);
+		//Sort.printSortedArray(num);
 
-		printValue(numbers);
+		//printValue(numbers);
 		randomize (num, n);
 
 		//Quick Sort
@@ -96,8 +95,9 @@ public class Numbers{
 		System.out.println("Total Execution Time of " + num.length + " numbers in Quick Sort take: " + quickSortExecutionTime + " milli sec");
 		connectToSqlDB.insertDataFromArrayToSqlTable(num, "Quick_Sort", "SortingNumbers");
 		//connectToSqlDB.insertDataFromArrayToSqlTable(num, "quick_sort", "SortingNumbers");
+		Sort.printSortedArray(num);
 
-		printValue(numbers);
+		//printValue(numbers);
 		randomize (num, n);
 
 		//Heap Sort
@@ -106,9 +106,9 @@ public class Numbers{
 		long heapSortExecutionTime = algo.executionTime;
 		System.out.println("Total Execution Time of " + num.length + " numbers in Heap Sort take: " + heapSortExecutionTime + " milli sec");
 		connectToSqlDB.insertDataFromArrayToSqlTable(num, "Heap_Sort", "SortingNumbers");
-		Sort.printSortedArray(num);
+		//Sort.printSortedArray(num);
 
-		printValue(numbers);
+		//printValue(numbers);
 		randomize (num, n);
 
 		//Bucket Sort
@@ -117,9 +117,9 @@ public class Numbers{
 		long bucketSortExecutionTime = algo.executionTime;
 		System.out.println("Total Execution Time of " + num.length + " numbers in bucket Sort take: " + bucketSortExecutionTime + " milli sec");
 		connectToSqlDB.insertDataFromArrayToSqlTable(num, "Bucket_Sort", "SortingNumbers");
-		Sort.printSortedArray(num);
+		//Sort.printSortedArray(num);
 
-		printValue(numbers);
+		//printValue(numbers);
 		randomize (num, n);
 
 		//Shell Sort
@@ -128,9 +128,9 @@ public class Numbers{
 		long shellSortExecutionTime = algo.executionTime;
 		System.out.println("Total Execution Time of " + num.length + " numbers in Shell Sort take: " + shellSortExecutionTime + " milli sec");
 		connectToSqlDB.insertDataFromArrayToSqlTable(num, "Shell_Sort", "SortingNumbers");
-		Sort.printSortedArray(num);
+		//Sort.printSortedArray(num);
 
-		printValue(numbers);
+		//printValue(numbers);
 		randomize (num, n);
 
 		//Come to conclusion about which Sorting Algo is better in given data set.
@@ -160,7 +160,7 @@ public class Numbers{
 	public static void storeRandomNumbers(int [] num){
 		Random rand = new Random();
 		for(int i=0; i<num.length; i++){
-			num[i] = rand.nextInt(100);
+			num[i] = rand.nextInt(1000000);
 		}
 	}
 
